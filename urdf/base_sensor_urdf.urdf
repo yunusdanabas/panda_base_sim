@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="panda_base_sim">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00020536 0.0010454 0.00032858"
+        rpy="0 0 0" />
+      <mass
+        value="7.31402866" />
+      <inertia
+        ixx="0.07723345"
+        ixy="-0.00059913"
+        ixz="-5.384E-05"
+        iyy="0.11610085"
+        iyz="0.00104937"
+        izz="0.06804509" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="leg1">
+    <inertial>
+      <origin
+        xyz="-0.27551 -0.13139 0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="0.00067984"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg1_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 0.10457"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg2">
+    <inertial>
+      <origin
+        xyz="-0.0044857 -0.13139 -0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="-0.00232404"
+        ixz="0.00034586"
+        iyy="0.0038376"
+        iyz="-0.00067985"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg2_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 -0.11143"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg3">
+    <inertial>
+      <origin
+        xyz="0.0044857 -0.13139 0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.3306" />
+      <inertia
+        ixx="0.01754602"
+        ixy="0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="0.00067984"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg3_joint"
+    type="fixed">
+    <origin
+      xyz="-0.13714 -0.078192 -0.11143"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg4">
+    <inertial>
+      <origin
+        xyz="-0.0044857 -0.13139 -0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="-0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="-0.00067985"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg4_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 0.10457"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lower_plate">
+    <inertial>
+      <origin
+        xyz="-4.8342E-05 -1.3683E-14 -4.4103E-14"
+        rpy="0 0 0" />
+      <mass
+        value="3.5198" />
+      <inertia
+        ixx="0.025449"
+        ixy="-6.1824E-20"
+        ixz="5.057E-18"
+        iyy="0.05081"
+        iyz="5.4718E-20"
+        izz="0.025492" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/lower_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/lower_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_plate_joint"
+    type="fixed">
+    <origin
+      xyz="0.0014312 0.089308 0.0045683"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lower_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="sensor">
+    <inertial>
+      <origin
+        xyz="0.0080217 -0.026503 2.5046E-06"
+        rpy="0 0 0" />
+      <mass
+        value="10.341" />
+      <inertia
+        ixx="0.020833"
+        ixy="-0.00057721"
+        ixz="-4.256E-05"
+        iyy="0.044378"
+        iyz="-7.91E-06"
+        izz="0.029193" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/sensor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="sensor_joint"
+    type="fixed">
+    <origin
+      xyz="0.024 0.0652 0"
+      rpy="0 0 0" />
+    <parent
+      link="lower_plate" />
+    <child
+      link="sensor" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="upper_plate">
+    <inertial>
+      <origin
+        xyz="-4.8342E-05 -8.6597E-15 -4.416E-14"
+        rpy="0 0 0" />
+      <mass
+        value="3.5198" />
+      <inertia
+        ixx="0.025449"
+        ixy="-7.5535E-20"
+        ixz="5.8845E-18"
+        iyy="0.05081"
+        iyz="1.4517E-21"
+        izz="0.025492" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/upper_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/upper_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upper_plate_joint"
+    type="fixed">
+    <origin
+      xyz="-0.024 0.007 0"
+      rpy="0 0 0" />
+    <parent
+      link="sensor" />
+    <child
+      link="upper_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="robot_base_plate">
+    <inertial>
+      <origin
+        xyz="1.1073E-11 -0.0060855 -1.9113E-11"
+        rpy="0 0 0" />
+      <mass
+        value="1.273" />
+      <inertia
+        ixx="0.010331"
+        ixy="-1.7342E-13"
+        ixz="1.784E-13"
+        iyy="0.020621"
+        iyz="7.4797E-14"
+        izz="0.010331" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/robot_base_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/robot_base_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mount_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.0205 0"
+      rpy="0 0 0" />
+    <parent
+      link="upper_plate" />
+    <child
+      link="robot_base_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

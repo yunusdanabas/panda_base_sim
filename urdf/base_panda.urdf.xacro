@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<robot name="base_panda_urdf" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- Define constants and arguments FIRST -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <xacro:arg name="prefix" default="darko/"/>
+  <xacro:arg name="gazebo" default="true"/>
+  <xacro:arg name="arm_id" default="panda"/>
+  <xacro:arg name="hand" default="true"/>
+  <xacro:arg name="arm_mounting_frame" default="$(arg arm_id)_base_mount_link"/>
+  <xacro:arg name="arm_mounting_joint" default="$(arg arm_id)_base_mount_joint"/>
+  <xacro:arg name="tcp_xyz" default="0 0 0.1034" />
+  <xacro:arg name="tcp_rpy" default="0 0 0" />
+  <!-- Set the base_frame to be the mounting frame -->
+  <xacro:arg name="base_frame" default="$(arg arm_mounting_frame)"/>
+
+  <!-- Now include the files that may reference these args -->
+  <xacro:include filename="$(find panda_base_sim)/robots/common/utils.xacro" />
+  <xacro:include filename="$(find panda_base_sim)/robots/common/franka_arm.xacro" />
+  <xacro:include filename="$(find panda_base_sim)/robots/common/franka_hand.xacro"/>
+
+  
+  <!-- ***************** -->
+  <!-- Base URDF Elements -->
+  <!-- ***************** -->
+
+<!-- Base link and mounting plate -->
+    <link name="dummy">
+        </link>
+
+    <link
+        name="base_link">
+        <inertial>
+        <origin
+            xyz="0.00020536 0.0010454 0.00032858"
+            rpy="0 0 0" />
+        <mass
+            value="7.31402866" />
+        <inertia
+            ixx="0.07723345"
+            ixy="-0.00059913"
+            ixz="-5.384E-05"
+            iyy="0.11610085"
+            iyz="0.00104937"
+            izz="0.06804509" />
+        </inertial>
+        <visual>
+        <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+        <geometry>
+            <mesh
+            filename="package://panda_base_sim/meshes/base_link.STL" />
+        </geometry>
+        <material
+            name="">
+            <color
+            rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+        </visual>
+        <collision>
+        <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+        <geometry>
+            <mesh
+            filename="package://panda_base_sim/meshes/base_link.STL" />
+        </geometry>
+        </collision>
+    </link>
+
+
+    <joint name="dummy_joint" type="fixed">
+        <parent link="dummy"/>
+        <child link="base_link"/>
+        <!-- Apply 90-degree rotation about the x-axis here -->
+        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+    </joint>
+
+ 
+  <link
+    name="leg1">
+    <inertial>
+      <origin
+        xyz="-0.27551 -0.13139 0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="0.00067984"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg1_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 0.10457"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg2">
+    <inertial>
+      <origin
+        xyz="-0.0044857 -0.13139 -0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="-0.00232404"
+        ixz="0.00034586"
+        iyy="0.0038376"
+        iyz="-0.00067985"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg2_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 -0.11143"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg3">
+    <inertial>
+      <origin
+        xyz="0.0044857 -0.13139 0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.3306" />
+      <inertia
+        ixx="0.01754602"
+        ixy="0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="0.00067984"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg3_joint"
+    type="fixed">
+    <origin
+      xyz="-0.13714 -0.078192 -0.11143"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leg4">
+    <inertial>
+      <origin
+        xyz="-0.0044857 -0.13139 -0.0013701"
+        rpy="0 0 0" />
+      <mass
+        value="2.33057268" />
+      <inertia
+        ixx="0.01754602"
+        ixy="-0.00232404"
+        ixz="0.00034586"
+        iyy="0.00383763"
+        iyz="-0.00067985"
+        izz="0.01867392" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/leg4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leg4_joint"
+    type="fixed">
+    <origin
+      xyz="0.14286 -0.078192 0.10457"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="leg4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lower_plate">
+    <inertial>
+      <origin
+        xyz="-4.8342E-05 -1.3683E-14 -4.4103E-14"
+        rpy="0 0 0" />
+      <mass
+        value="3.5198" />
+      <inertia
+        ixx="0.025449"
+        ixy="-6.1824E-20"
+        ixz="5.057E-18"
+        iyy="0.05081"
+        iyz="5.4718E-20"
+        izz="0.025492" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/lower_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/lower_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lower_plate_joint"
+    type="fixed">
+    <origin
+      xyz="0.0014312 0.089308 0.0045683"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lower_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="sensor">
+    <inertial>
+      <origin
+        xyz="0.0080217 -0.026503 2.5046E-06"
+        rpy="0 0 0" />
+      <mass
+        value="10.341" />
+      <inertia
+        ixx="0.020833"
+        ixy="-0.00057721"
+        ixz="-4.256E-05"
+        iyy="0.044378"
+        iyz="-7.91E-06"
+        izz="0.029193" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/sensor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/sensor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="sensor_joint"
+    type="fixed">
+    <origin
+      xyz="0.024 0.0652 0"
+      rpy="0 0 0" />
+    <parent
+      link="lower_plate" />
+    <child
+      link="sensor" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="upper_plate">
+    <inertial>
+      <origin
+        xyz="-4.8342E-05 -8.6597E-15 -4.416E-14"
+        rpy="0 0 0" />
+      <mass
+        value="3.5198" />
+      <inertia
+        ixx="0.025449"
+        ixy="-7.5535E-20"
+        ixz="5.8845E-18"
+        iyy="0.05081"
+        iyz="1.4517E-21"
+        izz="0.025492" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/upper_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/upper_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="upper_plate_joint"
+    type="fixed">
+    <origin
+      xyz="-0.024 0.007 0"
+      rpy="0 0 0" />
+    <parent
+      link="sensor" />
+    <child
+      link="upper_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="robot_base_plate">
+    <inertial>
+      <origin
+        xyz="1.1073E-11 -0.0060855 -1.9113E-11"
+        rpy="0 0 0" />
+      <mass
+        value="1.273" />
+      <inertia
+        ixx="0.010331"
+        ixy="-1.7342E-13"
+        ixz="1.784E-13"
+        iyy="0.020621"
+        iyz="7.4797E-14"
+        izz="0.010331" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/robot_base_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://panda_base_sim/meshes/robot_base_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mount_joint"
+    type="fixed">
+    <origin
+      xyz="0 0.0205 0"
+      rpy="0 0 0" />
+    <parent
+      link="upper_plate" />
+    <child
+      link="robot_base_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <!-- ***************** -->
+  <!-- Panda Arm Integration -->
+  <!-- ***************** -->
+  <!-- Define the mounting frame for the Panda arm -->
+  <joint name="$(arg arm_mounting_joint)" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5708 3.1415926535897931 0"/>
+    <parent link="robot_base_plate"/>
+    <child link="$(arg arm_mounting_frame)"/>
+  </joint>
+  <link name="$(arg arm_mounting_frame)"/>
+  
+
+
+  <!-- Define the base frame for the Panda arm -->
+  <!-- Instantiate the Panda arm -->
+
+  <xacro:franka_arm 
+    arm_id="$(arg arm_id)" 
+    safety_distance="0.03" 
+    gazebo="$(arg gazebo)"/>
+
+ 
+
+  <xacro:franka_hand
+      arm_id="$(arg arm_id)"
+      rpy="0 0 ${-PI/4}"
+      tcp_xyz="$(arg tcp_xyz)"
+      tcp_rpy="$(arg tcp_rpy)"
+      connected_to="$(arg arm_id)_link8"
+      safety_distance="0.03"
+      gazebo="$(arg gazebo)"/>
+  
+
+
+
+
+
+
+
+
+
+  <!-- Additional Gazebo configuration for the Panda arm -->
+  <xacro:if value="$(arg gazebo)">
+    <xacro:arg name="xyz" default="0 0 0"/>
+    <xacro:arg name="rpy" default="0 0 0"/>
+    
+    <joint name="$(arg arm_id)_$(arg base_frame)" type="fixed">
+      <origin xyz="$(arg xyz)" rpy="$(arg rpy)"/>
+      <parent link="$(arg base_frame)"/>
+      <child link="$(arg arm_id)_link0"/>
+    </joint>
+    
+    <!-- Gazebo joint transmissions -->
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint1" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint2" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint3" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint4" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint5" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint6" transmission="hardware_interface/PositionJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint7" transmission="hardware_interface/PositionJointInterface"/>
+    
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint1" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint2" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint3" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint4" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint5" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint6" transmission="hardware_interface/VelocityJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint7" transmission="hardware_interface/VelocityJointInterface"/>
+    
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint1" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint2" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint3" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint4" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint5" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint6" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_joint7" transmission="hardware_interface/EffortJointInterface"/>
+
+    <xacro:transmission-franka-state arm_id="$(arg arm_id)"/>
+    <xacro:transmission-franka-model arm_id="$(arg arm_id)"
+       root="$(arg arm_id)_joint1"
+       tip="$(arg arm_id)_joint8"/>
+    
+    <xacro:gazebo-joint joint="$(arg arm_id)_finger_joint1" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-joint joint="$(arg arm_id)_finger_joint2" transmission="hardware_interface/EffortJointInterface"/>
+    <xacro:gazebo-friction link="$(arg arm_id)_leftfinger" mu="1.13"/>
+    <xacro:gazebo-friction link="$(arg arm_id)_rightfinger" mu="1.13"/>
+  </xacro:if>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <controlPeriod>0.001</controlPeriod>
+      <robotSimType>franka_gazebo/FrankaHWSim</robotSimType>
+    </plugin>
+    <self_collide>true</self_collide>
+  </gazebo>
+
+</robot>
