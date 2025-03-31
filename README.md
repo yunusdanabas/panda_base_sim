@@ -19,11 +19,11 @@ roslaunch panda_base_sim panda_base_sim.launch
 
 ## Design Photos
 - **Front View:**  
-  [Front View](front.png)
+  ![Front View](front.png)
 - **Isometric View:**  
-  [Isometric View](iso.png)
+  ![Isometric View](iso.png)
 - **Side View:**  
-  [Side View](side.png)
+  ![Side View](side.png)
 
 
 
