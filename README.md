@@ -16,16 +16,14 @@ roslaunch panda_base_sim panda_base_sim.launch
 ## Simulation Screenshot
 - **In-Simulation View:**  
   ![Simulation](simulation.png)
-- **Design Frame Overview:**  
-  ![Frames](frames.pdf)
 
 ## Design Photos
 - **Front View:**  
-  ![Front View](front.PDF)
+  [Front View](front.png)
 - **Isometric View:**  
-  ![Isometric View](iso.PDF)
+  [Isometric View](iso.png)
 - **Side View:**  
-  ![Side View](side.pdf)
+  [Side View](side.png)
 
 
 
