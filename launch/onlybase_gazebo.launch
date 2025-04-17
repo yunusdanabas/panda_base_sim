@@ -1,3 +1,5 @@
+<!-- onlybase_gazebo.launch -->
+
 <launch>
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />

@@ -1,3 +1,6 @@
+# interactive_marker.py
+# Description: Interactive marker for setting the equilibrium pose of the robot
+
 #!/usr/bin/env python
 
 import rospy
