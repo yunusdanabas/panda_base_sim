@@ -1,4 +1,3 @@
-```markdown
 # panda_base_sim
 
 **ROS package for simulating a custom Panda‑arm base in Gazebo**
@@ -14,9 +13,9 @@ It provides a digital twin of a Franka Emika Panda arm mounted on a bespoke alum
 - **Gazebo Simulation**  
   Full 3D simulation of a rigid base + Panda arm + FT‑sensor stub.
 - **Modular URDF/Xacro**  
-  Split into common, base, arm and sensor xacros for easy reuse and extension.
+  Split into common, base, arm, and sensor xacros for easy reuse and extension.
 - **Integrated Controllers**  
-  Preconfigured joint, trajectory and Cartesian‑impedance controllers tuned for the twin’s dynamics.
+  Preconfigured joint, trajectory, and Cartesian‑impedance controllers tuned for the twin’s dynamics.
 - **RViz Visualization**  
   Custom RViz preset with an interactive equilibrium‑pose marker for safe teleoperation.
 
@@ -36,7 +35,7 @@ It provides a digital twin of a Franka Emika Panda arm mounted on a bespoke alum
 1. Clone into your workspace:
    ```bash
    cd ~/catkin_ws/src
-   git clone https://github.com/your‑username/panda_base_sim.git
+   git clone https://github.com/yunusdanabas/panda_base_sim.git
    ```
 2. Install dependencies:
    ```bash
@@ -49,8 +48,6 @@ It provides a digital twin of a Franka Emika Panda arm mounted on a bespoke alum
    catkin_make  # or colcon build
    source devel/setup.bash
    ```
-
----
 
 ## 🎮 Usage
 
