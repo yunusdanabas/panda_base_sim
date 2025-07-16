@@ -98,7 +98,6 @@ panda_base_sim/
 ├── CMakeLists.txt
 └── package.xml
 ```
-
 ---
 
 ## 📸 Gallery
@@ -106,9 +105,15 @@ panda_base_sim/
 |    Simulation (RViz + Gazebo)    |     Front Render    |
 | :------------------------------: | :-----------------: |
 | ![Gazebo + RViz](simulation.png) | ![Front](front.png) |
-|       ![Isometric](iso.png)      |  ![Side](side.png)  |
+
+&nbsp; | &nbsp; |
+
+|       Isometric View       |        Side View        |
+| :------------------------: | :---------------------: |
+| ![Isometric](iso.png)      | ![Side](side.png)       |
 
 ---
+
 
 ## 🙌 Acknowledgements
 
