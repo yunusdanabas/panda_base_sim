@@ -106,7 +106,7 @@ panda_base_sim/
 | :------------------------------: | :-----------------: |
 | ![Gazebo + RViz](simulation.png) | ![Front](front.png) |
 
-&nbsp; | &nbsp; |
+&nbsp; &nbsp; 
 
 |       Isometric View       |        Side View        |
 | :------------------------: | :---------------------: |
