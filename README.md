@@ -31,7 +31,7 @@ Built a modular Gazebo digital twin of a Franka Emika Panda arm on a custom alum
 ## 📈 Results & Impact
 
 * Enabled **100 % of controller tuning and safety checks** to be completed in simulation—zero risky on-robot trials.
-* Runs at **real-time (≈1 × wall-clock) speed** on a mid-tier desktop (≥ 60 FPS in Gazebo with full controller stack).
+* Runs at **real-time (≈ 1 × wall-clock) speed** on a mid-tier desktop (≥ 60 FPS in Gazebo with full controller stack).
 * Adopted by **three MIRMI researchers** as the baseline for force-torque sensor scaling studies.
 * Publicly released on GitHub for the wider robotics community.
 
@@ -103,9 +103,10 @@ panda_base_sim/
 
 ## 📸 Gallery
 
-|    Simulation (RViz + Gazebo)    |     Front Render    |  Isometric View |     Side View     |
-| :------------------------------: | :-----------------: | :-------------: | :---------------: |
-| ![Gazebo + RViz](simulation.png) | ![Front](front.png) | ![Iso](iso.png) | ![Side](side.png) |
+|    Simulation (RViz + Gazebo)    |     Front Render    |
+| :------------------------------: | :-----------------: |
+| ![Gazebo + RViz](simulation.png) | ![Front](front.png) |
+|       ![Isometric](iso.png)      |  ![Side](side.png)  |
 
 ---
 
