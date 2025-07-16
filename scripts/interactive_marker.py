@@ -1,7 +1,6 @@
-# interactive_marker.py
+#!/usr/bin/env python3
 # Description: Interactive marker for setting the equilibrium pose of the robot
 
-#!/usr/bin/env python
 
 import rospy
 import tf.transformations
